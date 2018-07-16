@@ -13,8 +13,10 @@ public class InitResponse {
     private String status_label;
     @SerializedName("sleep_hour")
     @Expose
-    private float sleep_hour;
-
+    private String sleep_hour;
+    @SerializedName("message")
+    @Expose
+    private String message;
     public int getStatus() {
         return status;
     }
@@ -23,7 +25,11 @@ public class InitResponse {
         return status_label;
     }
 
-    public float getSleep_hour() {
+    public String getSleep_hour() {
         return sleep_hour;
+    }
+
+    public String getMessage() {
+        return message;
     }
 }

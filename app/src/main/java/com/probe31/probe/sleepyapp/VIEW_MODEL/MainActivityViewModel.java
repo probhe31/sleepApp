@@ -4,8 +4,10 @@ import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
 import android.arch.lifecycle.ViewModel;
 
+
 import com.probe31.probe.sleepyapp.MODEL.AwakeResponse;
 import com.probe31.probe.sleepyapp.MODEL.InitResponse;
+import com.probe31.probe.sleepyapp.MODEL.MessageResponse;
 import com.probe31.probe.sleepyapp.MODEL.SleepResponse;
 import com.probe31.probe.sleepyapp.REPOSITORY.InitDataRepository;
 import com.probe31.probe.sleepyapp.REPOSITORY.SleepAwakeRepository;
@@ -15,8 +17,10 @@ public class MainActivityViewModel extends ViewModel {
     private MutableLiveData<InitResponse> initResponseLiveData;
     private MutableLiveData<SleepResponse> sleepResponseLiveData;
     private MutableLiveData<AwakeResponse> awakeResponseLiveData;
+    private MutableLiveData<MessageResponse> messageResponseLiveData;
     private InitDataRepository initDataRepository;
     private SleepAwakeRepository sleepAwakeRepository;
+
 
     public MainActivityViewModel() {
         initResponseLiveData = new MutableLiveData<>();
@@ -27,6 +31,9 @@ public class MainActivityViewModel extends ViewModel {
 
         awakeResponseLiveData = new MutableLiveData<>();
         awakeResponseLiveData.setValue(null);
+
+        messageResponseLiveData = new MutableLiveData<>();
+        messageResponseLiveData.setValue(null);
 
         initDataRepository = new InitDataRepository();
         sleepAwakeRepository = new SleepAwakeRepository();
@@ -48,6 +55,12 @@ public class MainActivityViewModel extends ViewModel {
 
         awakeResponseLiveData = sleepAwakeRepository.awake(token);
         return awakeResponseLiveData;
+    }
+
+    public LiveData<MessageResponse> sendMessage(String token, String message){
+        messageResponseLiveData = sleepAwakeRepository.sendMessage(token, message);
+        return messageResponseLiveData;
+
     }
 
 

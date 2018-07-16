@@ -1,12 +1,15 @@
 package com.probe31.probe.sleepyapp.REPOSITORY;
 
 import android.arch.lifecycle.MutableLiveData;
+import android.util.Log;
 
 import com.probe31.probe.sleepyapp.MODEL.AwakeResponse;
 
+import com.probe31.probe.sleepyapp.MODEL.MessageResponse;
 import com.probe31.probe.sleepyapp.MODEL.RegisterResponse;
 import com.probe31.probe.sleepyapp.MODEL.SleepResponse;
 import com.probe31.probe.sleepyapp.WEB_SERVICE.AwakeAPIService;
+import com.probe31.probe.sleepyapp.WEB_SERVICE.MessageAPIService;
 import com.probe31.probe.sleepyapp.WEB_SERVICE.RegisterUserAPIService;
 import com.probe31.probe.sleepyapp.WEB_SERVICE.RetrofitClientInstance;
 import com.probe31.probe.sleepyapp.WEB_SERVICE.SleepAPIService;
@@ -19,6 +22,7 @@ public class SleepAwakeRepository {
 
     private SleepAPIService sleepAPIService;
     private AwakeAPIService awakeAPIService;
+    private MessageAPIService messageAPIService;
 
     public MutableLiveData<SleepResponse> sleep(String token){
 
@@ -28,6 +32,8 @@ public class SleepAwakeRepository {
         call.enqueue(new Callback<SleepResponse>() {
             @Override
             public void onResponse(Call<SleepResponse> call, Response<SleepResponse> response) {
+
+                Log.d("debug_bh_sleep", response.toString());
                 if(response.isSuccessful()) {
                     SleepResponse sleepResponse = response.body();
                     if(sleepResponse!=null){
@@ -54,6 +60,9 @@ public class SleepAwakeRepository {
         call.enqueue(new Callback<AwakeResponse>() {
             @Override
             public void onResponse(Call<AwakeResponse> call, Response<AwakeResponse> response) {
+
+                Log.d("debug_bh_awake", response.toString());
+
                 if(response.isSuccessful()) {
                     AwakeResponse awakeResponse = response.body();
                     if(awakeResponse!=null){
@@ -72,5 +81,38 @@ public class SleepAwakeRepository {
             }
         });
         return awakeMutableLiveData;
+    }
+
+
+
+    public MutableLiveData<MessageResponse> sendMessage(String token, String message){
+
+        final MutableLiveData<MessageResponse> messageMutableLiveData = new MutableLiveData<>();
+        messageAPIService = RetrofitClientInstance.getRetrofitInstance(token).create(MessageAPIService.class);
+        Call<MessageResponse> call = messageAPIService.sendMessage(message);
+        call.enqueue(new Callback<MessageResponse>() {
+            @Override
+            public void onResponse(Call<MessageResponse> call, Response<MessageResponse> response) {
+
+                Log.d("debug_bh_awake", response.toString());
+
+                if(response.isSuccessful()) {
+                    MessageResponse messageResponspe = response.body();
+                    if(messageResponspe!=null){
+                        messageMutableLiveData.setValue(messageResponspe);
+                    }else{
+                        messageMutableLiveData.setValue(null);
+                    }
+
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<MessageResponse> call, Throwable t) {
+                messageMutableLiveData.setValue(null);
+            }
+        });
+        return messageMutableLiveData;
     }
 }

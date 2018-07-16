@@ -1,17 +1,32 @@
 package com.probe31.probe.sleepyapp.MODEL;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 public class Friend {
 
-    private String userName;
+    @SerializedName("idUser")
+    @Expose
+    private String idUser;
+
+    @SerializedName("username")
+    @Expose
+    private String username;
+
+    @SerializedName("status")
+    @Expose
     private int status;
+
+    @SerializedName("isAwake")
+    @Expose
     private boolean isAwake;
 
     public String getUserName() {
-        return userName;
+        return username;
     }
 
     public void setUserName(String userName) {
-        this.userName = userName;
+        this.username = userName;
     }
 
     public int getStatus() {

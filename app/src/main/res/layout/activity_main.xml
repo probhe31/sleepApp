@@ -5,22 +5,83 @@
     android:id="@+id/constraint_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/night_blue_top"
+    android:background="@color/day_top"
     tools:context=".VIEW.MainActivity">
+
+    <TextView
+        android:id="@+id/text_message_static"
+        android:layout_width="221dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:gravity="center_vertical|center_horizontal"
+        android:onClick="EditMessage"
+        android:text="TextView"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/button_main_main"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/image_main_avatar"
+        app:layout_constraintVertical_bias="0.312" />
+
+    <LinearLayout
+        android:id="@+id/group_message"
+        android:layout_width="wrap_content"
+        android:layout_height="49dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:orientation="horizontal"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/image_main_avatar">
+
+        <EditText
+            android:id="@+id/text_message_main"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_weight="1"
+            android:ems="10"
+            android:hint="@string/main_text_message"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_hour_sleep" />
+
+        <ImageButton
+            android:id="@+id/button_send_message"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginTop="8dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:onClick="sendMessage"
+            app:srcCompat="@drawable/ic_send_black_24dp" />
+
+    </LinearLayout>
 
     <Button
         android:id="@+id/button_main_main"
-        android:layout_width="280dp"
-        android:layout_height="100dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:background="@color/colorAccent"
+        android:layout_width="218dp"
+        android:layout_height="74dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/button_bg_rounded_corners"
         android:onClick="OnClickMainButton"
         android:text="Button"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_hour_sleep" />
+        app:layout_constraintTop_toBottomOf="@+id/group_message" />
 
     <LinearLayout
         android:id="@+id/group_main_friends"
@@ -34,6 +95,8 @@
             android:id="@+id/button_main_add_friend"
             android:layout_width="32dp"
             android:layout_height="32dp"
+            android:layout_margin="8dp"
+            android:onClick="onClickSearchFriends"
             app:srcCompat="@drawable/ic_person_add_black_24dp" />
 
     </LinearLayout>
@@ -41,8 +104,8 @@
 
     <ImageView
         android:id="@+id/image_main_avatar"
-        android:layout_width="280dp"
-        android:layout_height="280dp"
+        android:layout_width="249dp"
+        android:layout_height="268dp"
         android:layout_marginEnd="16dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="64dp"
@@ -57,14 +120,13 @@
         android:layout_height="25dp"
         android:layout_marginEnd="16dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
         android:text="Ha dormido:"
         android:textColor="@color/day_bottom"
         android:textSize="20sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/image_main_avatar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/image_main_avatar" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <LinearLayout
         android:id="@+id/group_main_social"

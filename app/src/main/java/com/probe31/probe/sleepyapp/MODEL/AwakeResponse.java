@@ -14,7 +14,9 @@ public class AwakeResponse {
 
     @SerializedName("sleep_hour")
     @Expose
-    private float sleep_hour;
+    private String sleep_hour;
+
+
 
     public int getStatus() {
         return status;
@@ -24,7 +26,9 @@ public class AwakeResponse {
         return status_label;
     }
 
-    public float getSleep_hour() {
+    public String getSleep_hour() {
         return sleep_hour;
     }
+
+
 }

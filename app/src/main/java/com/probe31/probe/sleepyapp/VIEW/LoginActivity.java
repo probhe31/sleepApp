@@ -10,6 +10,7 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
 import android.support.annotation.Nullable;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -34,19 +35,37 @@ public class LoginActivity extends AppCompatActivity {
     LoginActivityViewModel loginActivityVM;
     RelativeLayout loginProgressLayout;
     LinearLayout loginFormLayout;
+
     Context context;
+    ConstraintLayout constraintLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        this.constraintLayout = (ConstraintLayout) findViewById(R.id.constraint_login_layout);
         this.loginProgressLayout = findViewById(R.id.login_loading_layout);
         this.loginFormLayout = findViewById(R.id.login_form_layout);
         this.loginActivityVM = ViewModelProviders.of(this).get(LoginActivityViewModel.class);
         this.context = this;
 
+
         SharedPreferences settings = getSharedPreferences("userData", 0);
+        int lastState = settings.getInt("last_state", 0);
+
+        if(lastState==0)
+        {
+            constraintLayout.setBackground(getDrawable(R.color.day_top));
+        }else if(lastState==1)
+        {
+            constraintLayout.setBackground(getDrawable(R.color.night_blue_top));
+        }
+
+
+
+
+
         String token = settings.getString("token", "");
 
         if(TextUtils.isEmpty(token)){

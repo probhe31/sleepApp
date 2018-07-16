@@ -24,8 +24,8 @@ public class FriendRecyclerAdapter extends RecyclerView.Adapter<FriendRecyclerAd
         public ViewHolder(View view) {
             super(view);
             usernameText = (TextView)view.findViewById(R.id.text_adapter_main_username);
-            statusText = (TextView)view.findViewById(R.id.text_adapter_main_status);
-            isAwakeText = (TextView)view.findViewById(R.id.text_adapter_main_isawake);
+            //statusText = (TextView)view.findViewById(R.id.text_adapter_main_status);
+            //isAwakeText = (TextView)view.findViewById(R.id.text_adapter_main_isawake);
             imageAvatar = (ImageView)view.findViewById(R.id.image_main_friend_avatar);
         }
     }
@@ -48,8 +48,8 @@ public class FriendRecyclerAdapter extends RecyclerView.Adapter<FriendRecyclerAd
     public void onBindViewHolder(FriendRecyclerAdapter.ViewHolder holder, int position) {
         Friend friend = friendList.get(position);
         holder.usernameText.setText(friend.getUserName());
-        holder.statusText.setText(friend.getStatus());
-        holder.isAwakeText.setText(friend.isAwake()?"Despiesto" :"Dormido");
+        //holder.statusText.setText(friend.getStatus());
+        //holder.isAwakeText.setText(friend.isAwake()?"Despiesto" :"Dormido");
         holder.imageAvatar.setImageResource(getStatusImage(friend.getStatus()));
     }
 
@@ -102,6 +102,10 @@ public class FriendRecyclerAdapter extends RecyclerView.Adapter<FriendRecyclerAd
             case 8:
                 result = R.drawable.avatar_128_status_8;
                 break;
+
+                default:
+                    result = R.drawable.avatar_128_status_8;
+                    break;
         }
 
         return result;
