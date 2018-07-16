@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
     tools:context=".VIEW.RegisterActivity">
 
     <LinearLayout
@@ -52,17 +53,41 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
+            android:background="@color/primaryText"
             android:text="@string/register_gender_switch"
             android:textOff="@string/register_male_switch"
             android:textOn="@string/register_female_switch" />
 
-        <Button
-            android:id="@+id/button_register_register"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:onClick="sendRegisterForm"
-            android:text="@string/register_register_button" />
+            android:layout_marginTop="64dp"
+            android:gravity="center_horizontal|center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/button_register_cancel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:layout_weight="1"
+                android:background="@color/colorPrimaryDark"
+                android:onClick="onClickButtonCancel"
+                android:padding="8dp"
+                android:text="@string/register_cancel_button" />
+
+            <Button
+                android:id="@+id/button_register_register"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:layout_weight="1"
+                android:background="@color/colorAccent"
+                android:onClick="sendRegisterForm"
+                android:padding="8dp"
+                android:text="@string/register_register_button" />
+
+        </LinearLayout>
 
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

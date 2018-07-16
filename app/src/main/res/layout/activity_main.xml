@@ -2,8 +2,10 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraint_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background_animation"
     tools:context=".VIEW.MainActivity">
 
     <Button
@@ -34,6 +36,19 @@
             android:text="Button" />
     </LinearLayout>
 
+
+    <ImageView
+        android:id="@+id/image_main_avatar"
+        android:layout_width="280dp"
+        android:layout_height="280dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="64dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/avatar_512_status_1" />
+
     <LinearLayout
         android:id="@+id/group_main_social"
         android:layout_width="wrap_content"
@@ -42,29 +57,26 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <Button
+        <ImageButton
             android:id="@+id/button_main_facebook"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Button" />
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_margin="8dp"
+            android:layout_marginTop="8dp"
+            android:background="@null"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/facebook" />
 
-        <Button
+        <ImageButton
             android:id="@+id/button_main_twitter"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Button" />
-    </LinearLayout>
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_margin="8dp"
+            android:layout_marginTop="8dp"
+            android:background="@null"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/twitter" />
 
-    <ImageView
-        android:id="@+id/image_main_avatar"
-        android:layout_width="280dp"
-        android:layout_height="280dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/group_main_social"
-        app:srcCompat="@drawable/avatar_512_status_1" />
+    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

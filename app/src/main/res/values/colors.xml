@@ -2,5 +2,16 @@
 <resources>
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorAccent">#ff5722</color>
+    <color name="textIcons">#FFFFFF</color>
+    <color name="primaryText">#212121</color>
+    <color name="secondaryText">#757575</color>
+    <color name="lightPrimaryColor">#C5CAE9</color>
+
+
+    <color name="night_blue_top">#1f1027</color>
+    <color name="night_blue_bottom">#604065</color>
+
+    <color name="day_top">#BFE0F7</color>
+    <color name="day_bottom">#FAF5ED</color>
 </resources>

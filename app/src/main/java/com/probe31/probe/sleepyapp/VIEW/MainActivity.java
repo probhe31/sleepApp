@@ -1,9 +1,12 @@
 package com.probe31.probe.sleepyapp.VIEW;
 
+import android.graphics.drawable.AnimationDrawable;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 
 import com.probe31.probe.sleepyapp.R;
@@ -13,12 +16,24 @@ public class MainActivity extends AppCompatActivity {
     Button mainButton;
     ImageView avatarImage;
     boolean isAwake = true;
+
+    AnimationDrawable animationDrawable;
+    ConstraintLayout constraintLayout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mainButton = (Button) findViewById(R.id.button_main_main);
         avatarImage = (ImageView) findViewById(R.id.image_main_avatar);
+
+        constraintLayout = (ConstraintLayout) findViewById(R.id.constraint_main);
+        animationDrawable = (AnimationDrawable)constraintLayout.getBackground();
+
+        animationDrawable.setEnterFadeDuration(5000);
+        animationDrawable.setEnterFadeDuration(2000);
+        animationDrawable.start();
+
 
         switchButton(isAwake);
         //TODO: llamar al endPoint init

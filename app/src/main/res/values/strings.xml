@@ -11,6 +11,7 @@
     <string name="register_password_hint">Contraseña</string>
     <string name="register_password_again_hint">Repita la contraseña</string>
     <string name="register_register_button">Registrarse</string>
+    <string name="register_cancel_button">Cancelar</string>
     <string name="register_username_error">Nombre de usuario incorrecto</string>
     <string name="register_password_error">Contraseña incorrecta</string>
     <string name="register_password_again_error">Las contraseñas no coinciden</string>

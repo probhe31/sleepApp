@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
     tools:context=".VIEW.LoginActivity">
 
     <LinearLayout
@@ -46,7 +47,8 @@
             android:id="@+id/button_login_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="48dp"
+            android:background="@color/colorAccent"
             android:onClick="sendLoginForm"
             android:text="@string/login_login_button" />
 
@@ -59,7 +61,7 @@
                 android:id="@+id/text_login_ask_part_1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="16dp"
                 android:layout_weight="1"
                 android:gravity="right"
                 android:text="@string/login_ask_account_button" />
@@ -69,7 +71,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="16dp"
                 android:layout_weight="1"
                 android:gravity="left|center"
                 android:onClick="goToRegister"

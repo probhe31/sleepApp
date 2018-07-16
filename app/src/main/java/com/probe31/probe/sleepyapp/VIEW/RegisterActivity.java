@@ -95,4 +95,11 @@ public class RegisterActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+
+    public void onClickButtonCancel(View view)
+    {
+        goToLogin();
+    }
+
+
 }
