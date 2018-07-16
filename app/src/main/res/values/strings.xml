@@ -1,0 +1,26 @@
+<resources>
+
+    <string name="app_name">SleepyApp</string>
+    <string name="login_username_hint">Nombre de usuario</string>
+    <string name="login_password_hint">Contraseña</string>
+    <string name="login_login_button">Ingresar</string>
+    <string name="login_username_error">Nombre de usuario requerido</string>
+    <string name="login_password_error">Contraseña requerida</string>
+    <string name="login_loading_text">Cargando...</string>
+    <string name="register_username_hint">Nombre de usuario</string>
+    <string name="register_password_hint">Contraseña</string>
+    <string name="register_password_again_hint">Repita la contraseña</string>
+    <string name="register_register_button">Registrarse</string>
+    <string name="register_username_error">Nombre de usuario incorrecto</string>
+    <string name="register_password_error">Contraseña incorrecta</string>
+    <string name="register_password_again_error">Las contraseñas no coinciden</string>
+    <string name="register_gender_switch">Sexo</string>
+    <string name="register_male_switch">Masculino</string>
+    <string name="register_female_switch">Femenino</string>
+    <string name="login_ask_account_button">¿No tienes cuenta?</string>
+    <string name="login_invite_register_button">Registrate ahora</string>
+    <string name="button_main_sleep">Dormir</string>
+    <string name="button_main_awake">Despertar</string>
+
+
+</resources>
