@@ -30,25 +30,17 @@ public class LoginRepository {
     public MutableLiveData<TokenResponse> getTokenResponseLiveData(final TokenRequest tokenRequest) {
 
         final MutableLiveData<TokenResponse> tokenResponseMutableLiveData = new MutableLiveData<>();
-
-
-
         loginAPIService = RetrofitClientInstance.getRetrofitInstance().create(LoginAPIService.class);
         Call<TokenResponse> call = loginAPIService.getTokenAccess(tokenRequest);
-        Log.d("debug_probe31", "enter repository " + tokenRequest.getUsername() + "  " + tokenRequest.getPassword());
-
 
         call.enqueue(new Callback<TokenResponse>() {
             @Override
             public void onResponse(Call<TokenResponse> call, Response<TokenResponse> response) {
 
-                Log.d("debug_probe31", "on response1 " + response.toString());
-
                 reponseCodeLiveData.setValue(response.code());
-
+                Log.d("bherring" , response.toString());
                 if(response.isSuccessful())
                 {
-                    Log.d("debug_probe31", response.body().toString());
                     TokenResponse tokenResponse = response.body();
 
                     if(tokenResponse != null){
@@ -63,16 +55,16 @@ public class LoginRepository {
                             tokenResponseMutableLiveData.setValue(null);
                         }
                     }
+                }else
+                {
+                    tokenResponseMutableLiveData.setValue(null);
                 }
             }
 
             @Override
             public void onFailure(Call<TokenResponse> call, Throwable t) {
-                Log.d("error debug_probe31", t.getMessage());
-                Log.d("error debug_probe31", t.toString());
 
                 tokenResponseMutableLiveData.setValue(null);
-
             }
         });
 

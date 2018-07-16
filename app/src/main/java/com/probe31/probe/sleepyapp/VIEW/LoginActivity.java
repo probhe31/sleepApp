@@ -1,4 +1,4 @@
-package com.probe31.probe.sleepyapp;
+package com.probe31.probe.sleepyapp.VIEW;
 
 import android.app.Activity;
 import android.arch.lifecycle.Observer;
@@ -6,9 +6,14 @@ import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.Signature;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Base64;
+import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
@@ -17,7 +22,11 @@ import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.probe31.probe.sleepyapp.MODEL.TokenResponse;
+import com.probe31.probe.sleepyapp.R;
 import com.probe31.probe.sleepyapp.VIEW_MODEL.LoginActivityViewModel;
+
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -44,6 +53,8 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         });
+
+        printhashkey();
     }
 
 
@@ -126,4 +137,24 @@ public class LoginActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+
+
+    public void printhashkey(){
+
+        try {
+            PackageInfo info = getPackageManager().getPackageInfo(
+                    "com.probe31.probe.sleepyapp",
+                    PackageManager.GET_SIGNATURES);
+            for (Signature signature : info.signatures) {
+                MessageDigest md = MessageDigest.getInstance("SHA");
+                md.update(signature.toByteArray());
+                Log.d("KeyHash:", Base64.encodeToString(md.digest(), Base64.DEFAULT));
+            }
+        } catch (PackageManager.NameNotFoundException e) {
+
+        } catch (NoSuchAlgorithmException e) {
+
+        }
+
+    }
 }

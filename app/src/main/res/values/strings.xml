@@ -21,6 +21,8 @@
     <string name="login_invite_register_button">Registrate ahora</string>
     <string name="button_main_sleep">Dormir</string>
     <string name="button_main_awake">Despertar</string>
+    <string name="text_friends_title">Mis amigos</string>
+
 
 
 </resources>

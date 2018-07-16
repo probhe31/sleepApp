@@ -1,4 +1,4 @@
-package com.probe31.probe.sleepyapp;
+package com.probe31.probe.sleepyapp.VIEW;
 
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
@@ -14,6 +14,7 @@ import android.widget.ToggleButton;
 
 import com.probe31.probe.sleepyapp.MODEL.RegisterResponse;
 import com.probe31.probe.sleepyapp.MODEL.User;
+import com.probe31.probe.sleepyapp.R;
 import com.probe31.probe.sleepyapp.VIEW_MODEL.RegisterUserActivityViewModel;
 
 public class RegisterActivity extends AppCompatActivity {

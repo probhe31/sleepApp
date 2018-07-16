@@ -32,8 +32,6 @@ public class LoginActivityViewModel extends ViewModel {
 
     public LiveData<TokenResponse> tryLogin(String username, String password){
 
-        Log.d("debug_probe31", "enter view model");
-
         TokenRequest tokenRequest = new TokenRequest();
         tokenRequest.setUsername(username);
         tokenRequest.setPassword(password);
