@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
 
     EditText editMessage;
     TextView textMessagePreview;
+    TextView textTitle;
     LinearLayout group_message;
 
     int sleepStatusCode = 8;
@@ -63,7 +64,10 @@ public class MainActivity extends AppCompatActivity {
 
         this.progressLayout = findViewById(R.id.main_loading_layout);
         this.progressLayout.setVisibility(View.VISIBLE);
+        this.progressLayout.bringToFront();
+
         this.hoursText = findViewById(R.id.text_hour_sleep);
+        this.textTitle = findViewById(R.id.id_title_time_sleep);
         mainButton = (Button) findViewById(R.id.button_main_main);
         avatarImage = (ImageView) findViewById(R.id.image_main_avatar);
 
@@ -91,10 +95,16 @@ public class MainActivity extends AppCompatActivity {
                     switchButton(state);
                     setStatusImage(initResponse.getStatus());
 
-                    if(isAwake)
-                        hoursText.setText(getText(R.string.main_you_sleep)+ " " + initResponse.getSleep_hour());
-                    else
+                    if(isAwake){
+                        hoursText.setText(initResponse.getSleep_hour());
+                        textTitle.setVisibility(View.VISIBLE);
+                    }
+                    else{
                         hoursText.setText("Durmiendo...");
+                        textTitle.setVisibility(View.INVISIBLE);
+                    }
+
+
 
                     progressLayout.setVisibility(View.GONE);
 
@@ -149,7 +159,7 @@ public class MainActivity extends AppCompatActivity {
                             setStatusImage(sleepResponse.getStatus());
 
                             hoursText.setText("Durmiendo...");
-
+                            textTitle.setVisibility(View.INVISIBLE);
                         }
                     }
                 });
@@ -162,8 +172,8 @@ public class MainActivity extends AppCompatActivity {
                         {
                             setStatusImage(awakeResponse.getStatus());
 
-                            hoursText.setText(getText(R.string.main_you_sleep)+ " " + awakeResponse.getSleep_hour());
-
+                            hoursText.setText(awakeResponse.getSleep_hour());
+                            textTitle.setVisibility(View.VISIBLE);
 
                         }
                     }
@@ -275,7 +285,7 @@ public class MainActivity extends AppCompatActivity {
         textMessagePreview.setText(message);
         textMessagePreview.setVisibility(View.VISIBLE);
 
-        mainActivityViewModel.sendMessage(token, editMessage.getText().toString()).observe(this, new Observer<MessageResponse>() {
+        mainActivityViewModel.sendMessage(token, message).observe(this, new Observer<MessageResponse>() {
             @Override
             public void onChanged(@Nullable MessageResponse messageResponse) {
                 if(messageResponse!=null)

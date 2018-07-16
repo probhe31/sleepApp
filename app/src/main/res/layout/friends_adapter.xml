@@ -6,28 +6,55 @@
     android:layout_height="wrap_content"
     card_view:cardCornerRadius="6dp"
     card_view:cardElevation="3dp"
-    card_view:cardUseCompatPadding="true">
+    card_view:cardUseCompatPadding="true"
+    card_view:cardBackgroundColor="@color/night_blue_bottom">
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:background="@null">
 
         <ImageView
             android:id="@+id/image_main_friend_avatar"
             android:layout_width="100dp"
             android:layout_height="92dp"
-            android:layout_margin="16dp"
+            android:layout_margin="8dp"
             android:layout_weight="0"
             card_view:srcCompat="@drawable/avatar_128_status_8" />
 
-        <TextView
-            android:id="@+id/text_adapter_main_username"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            android:layout_weight="1" />
+            android:layout_weight="0"
+            android:gravity="center_horizontal|center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/text_adapter_main_username"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_weight="1"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/text_adapter_message"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_weight="1"
+                android:textStyle="italic" />
+
+            <TextView
+                android:id="@+id/text_time_sleep"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_weight="1" />
+        </LinearLayout>
+
     </LinearLayout>
 
 </android.support.v7.widget.CardView>

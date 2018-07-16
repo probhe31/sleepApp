@@ -1,12 +1,7 @@
 package com.probe31.probe.sleepyapp.MODEL;
 
-import com.google.gson.annotations.Expose;
-import com.google.gson.annotations.SerializedName;
+public class MessageRequest {
 
-public class MessageResponse {
-
-    @SerializedName("message")
-    @Expose
     private String message;
 
     public String getMessage() {

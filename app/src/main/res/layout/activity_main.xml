@@ -70,8 +70,9 @@
 
     <Button
         android:id="@+id/button_main_main"
-        android:layout_width="218dp"
-        android:layout_height="74dp"
+        android:layout_width="210dp"
+        android:layout_height="68dp"
+        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="32dp"
@@ -79,6 +80,7 @@
         android:onClick="OnClickMainButton"
         android:text="Button"
         android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/group_message" />
@@ -104,15 +106,29 @@
 
     <ImageView
         android:id="@+id/image_main_avatar"
-        android:layout_width="249dp"
-        android:layout_height="268dp"
+        android:layout_width="273dp"
+        android:layout_height="289dp"
         android:layout_marginEnd="16dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_hour_sleep"
+        app:srcCompat="@drawable/avatar_512_status_1" />
+
+    <TextView
+        android:id="@+id/id_title_time_sleep"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="36dp"
+        android:text="Tiempo dormido:"
+        android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/avatar_512_status_1" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/text_hour_sleep"
@@ -120,13 +136,16 @@
         android:layout_height="25dp"
         android:layout_marginEnd="16dp"
         android:layout_marginStart="16dp"
-        android:text="Ha dormido:"
+        android:text="00:00"
         android:textColor="@color/day_bottom"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/image_main_avatar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/id_title_time_sleep"
+        app:layout_constraintVertical_bias="0.0" />
 
     <LinearLayout
         android:id="@+id/group_main_social"
@@ -163,16 +182,12 @@
         android:id="@+id/main_loading_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="0dp"
-        android:layout_marginEnd="0dp"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="0dp"
+        android:background="@color/colorPrimary"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:background="@color/colorPrimary">
+        app:layout_constraintTop_toTopOf="parent">
 
         <ProgressBar
             android:id="@+id/progressBar"

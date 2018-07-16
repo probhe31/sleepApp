@@ -5,6 +5,7 @@ import android.util.Log;
 
 import com.probe31.probe.sleepyapp.MODEL.AwakeResponse;
 
+import com.probe31.probe.sleepyapp.MODEL.MessageRequest;
 import com.probe31.probe.sleepyapp.MODEL.MessageResponse;
 import com.probe31.probe.sleepyapp.MODEL.RegisterResponse;
 import com.probe31.probe.sleepyapp.MODEL.SleepResponse;
@@ -89,7 +90,9 @@ public class SleepAwakeRepository {
 
         final MutableLiveData<MessageResponse> messageMutableLiveData = new MutableLiveData<>();
         messageAPIService = RetrofitClientInstance.getRetrofitInstance(token).create(MessageAPIService.class);
-        Call<MessageResponse> call = messageAPIService.sendMessage(message);
+        MessageRequest messageRequest = new MessageRequest();
+        messageRequest.setMessage(message);
+        Call<MessageResponse> call = messageAPIService.sendMessage(messageRequest);
         call.enqueue(new Callback<MessageResponse>() {
             @Override
             public void onResponse(Call<MessageResponse> call, Response<MessageResponse> response) {

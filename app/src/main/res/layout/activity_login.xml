@@ -22,6 +22,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/avatar_128_status_3" />
+
         <EditText
             android:id="@+id/text_login_username"
             android:layout_width="match_parent"
