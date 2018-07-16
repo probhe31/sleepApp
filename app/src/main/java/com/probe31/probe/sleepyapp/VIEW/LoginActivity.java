@@ -12,6 +12,7 @@ import android.content.pm.Signature;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Log;
 import android.view.View;
@@ -45,16 +46,24 @@ public class LoginActivity extends AppCompatActivity {
         this.loginActivityVM = ViewModelProviders.of(this).get(LoginActivityViewModel.class);
         this.context = this;
 
-        loginActivityVM.checkNetwork().observe(this, new Observer<Integer>() {
-            @Override
-            public void onChanged(@Nullable Integer idError) {
-                if(idError==401){
-                    Toast.makeText(context, "Authorization problem", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
+        SharedPreferences settings = getSharedPreferences("userData", 0);
+        String token = settings.getString("token", "");
 
-        printhashkey();
+        if(TextUtils.isEmpty(token)){
+            loginActivityVM.checkNetwork().observe(this, new Observer<Integer>() {
+                @Override
+                public void onChanged(@Nullable Integer idError) {
+                    if(idError==401){
+                        Toast.makeText(context, "Authorization problem", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+
+            //printhashkey();
+        }else{
+            goToMainMenu();
+        }
+
     }
 
 
@@ -83,9 +92,11 @@ public class LoginActivity extends AppCompatActivity {
         }
 
         if (cancel) {
+
             if(focusView!=null)
                 focusView.requestFocus();
         }else{
+
             loginActivityVM.tryLogin(username, password).observe(this, new Observer<TokenResponse>() {
                 @Override
                 public void onChanged(@Nullable TokenResponse tokenResponse) {

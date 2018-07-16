@@ -79,25 +79,25 @@ public class FriendRecyclerAdapter extends RecyclerView.Adapter<FriendRecyclerAd
         switch (status)
         {
             case 1:
-                result = R.drawable.avatar_128_status_1;
+                result = R.drawable.avatar_128_status_7;
                 break;
             case 2:
-                result = R.drawable.avatar_128_status_2;
+                result = R.drawable.avatar_128_status_6;
                 break;
             case 3:
-                result = R.drawable.avatar_128_status_3;
+                result = R.drawable.avatar_128_status_8;
                 break;
             case 4:
                 result = R.drawable.avatar_128_status_4;
                 break;
             case 5:
-                result = R.drawable.avatar_128_status_5;
+                result = R.drawable.avatar_128_status_3;
                 break;
             case 6:
-                result = R.drawable.avatar_128_status_6;
+                result = R.drawable.avatar_128_status_5;
                 break;
             case 7:
-                result = R.drawable.avatar_128_status_7;
+                result = R.drawable.avatar_128_status_1;
                 break;
             case 8:
                 result = R.drawable.avatar_128_status_8;

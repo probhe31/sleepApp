@@ -9,6 +9,6 @@ import retrofit2.http.POST;
 public interface SleepAPIService {
 
     @POST("api/sleep")
-    Call<SleepResponse> sleep(@Body SleepRequest sleepRequest);
+    Call<SleepResponse> sleep();
 
 }

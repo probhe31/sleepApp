@@ -15,4 +15,15 @@ public class InitResponse {
     @Expose
     private float sleep_hour;
 
+    public int getStatus() {
+        return status;
+    }
+
+    public String getStatus_label() {
+        return status_label;
+    }
+
+    public float getSleep_hour() {
+        return sleep_hour;
+    }
 }
